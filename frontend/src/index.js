@@ -24,7 +24,7 @@ import RoomRegister from './components/manager/RoomRegister';
 import RoomsShow from './components/user/RoomsShow';
 import MyRooms from './components/manager/MyRooms';
 import RoomEdit from './components/manager/RoomEdit';
-import UsersAndAccommodation  from './components/admin/UsersAndAccommodation';
+import UsersAndAccommodation from './components/admin/UsersAndAccommodation';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -41,6 +41,8 @@ const Unsigned = Authorization(['Unsigned']);
 const User = Authorization(['User', 'Manager', 'Admin']);
 const Manager = Authorization(['Manager', 'Admin']);
 const Admin = Authorization(['Admin']);
+
+
 
 const renderRouts = () => {
 
@@ -60,7 +62,7 @@ const renderRouts = () => {
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter >
-            <App >
+            <App token={token}>
 
                 <Switch>
 

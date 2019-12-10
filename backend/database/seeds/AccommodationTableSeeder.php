@@ -22,6 +22,7 @@ class AccommodationTableSeeder extends Seeder
         $accommodation1->user_id = 1;
         $accommodation1->accommodation_type_id = 1;
         $accommodation1->place_id = 1;
+        $accommodation1->approved = true;
         $accommodation1->save();
 
         $accommodation2 = new Accommodation();
@@ -33,6 +34,7 @@ class AccommodationTableSeeder extends Seeder
         $accommodation2->user_id = 1;
         $accommodation2->accommodation_type_id = 3;
         $accommodation2->place_id = 2;
+        $accommodation2->approved = true;
         $accommodation2->save();
 
         $accommodation3 = new Accommodation();
@@ -44,6 +46,7 @@ class AccommodationTableSeeder extends Seeder
         $accommodation3->user_id = 1;
         $accommodation3->accommodation_type_id = 2;
         $accommodation3->place_id = 3;
+        $accommodation3->approved = true;
         $accommodation3->save();
 
         $accommodation4 = new Accommodation();
@@ -55,6 +58,7 @@ class AccommodationTableSeeder extends Seeder
         $accommodation4->user_id = 1;
         $accommodation4->accommodation_type_id = 1;
         $accommodation4->place_id = 4;
+        $accommodation4->approved = true;
         $accommodation4->save();
 
         $accommodation5 = new Accommodation();
@@ -66,6 +70,7 @@ class AccommodationTableSeeder extends Seeder
         $accommodation5->user_id = 1;
         $accommodation5->accommodation_type_id = 1;
         $accommodation5->place_id = 5;
+        $accommodation5->approved = true;
         $accommodation5->save();
 
         $accommodation6 = new Accommodation();
@@ -77,6 +82,7 @@ class AccommodationTableSeeder extends Seeder
         $accommodation6->user_id = 1;
         $accommodation6->accommodation_type_id = 1;
         $accommodation6->place_id = 6;
+        $accommodation6->approved = true;
         $accommodation6->save();
 
         $accommodation7 = new Accommodation();
@@ -88,6 +94,7 @@ class AccommodationTableSeeder extends Seeder
         $accommodation7->user_id = 1;
         $accommodation7->accommodation_type_id = 3;
         $accommodation7->place_id = 7;
+        $accommodation7->approved = true;
         $accommodation7->save();
 
         $accommodation8 = new Accommodation();
@@ -99,6 +106,7 @@ class AccommodationTableSeeder extends Seeder
         $accommodation8->user_id = 1;
         $accommodation8->accommodation_type_id = 2;
         $accommodation8->place_id = 8;
+        $accommodation8->approved = true;
         $accommodation8->save();
 
         $accommodation9 = new Accommodation();
@@ -110,6 +118,7 @@ class AccommodationTableSeeder extends Seeder
         $accommodation9->user_id = 2;
         $accommodation9->accommodation_type_id = 3;
         $accommodation9->place_id = 9;
+        $accommodation9->approved = true;
         $accommodation9->save();
 
 

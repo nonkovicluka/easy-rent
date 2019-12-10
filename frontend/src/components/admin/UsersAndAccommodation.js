@@ -24,7 +24,6 @@ class UsersAndAccommodation extends Component {
         this.props.getUsers();
         this.props.searchAccommodation({ unchecked: true });
 
-
     }
 
     onClickBan = (id) => {
@@ -82,6 +81,7 @@ class UsersAndAccommodation extends Component {
 
         ];
 
+
         const accommodationColumns = [
             {
                 Header: '#',
@@ -90,21 +90,25 @@ class UsersAndAccommodation extends Component {
             }, {
                 Header: 'Name',
                 accessor: 'name',
-                maxWidth: 140,
-                Cell: this.renderEditable
+                maxWidth: 90
             }, {
                 Header: 'Description',
                 accessor: 'description',
-                maxWidth: 260,
-                Cell: this.renderEditable
+                maxWidth: 90
             }, {
                 Header: 'Address',
-                accessor: 'address'
+                accessor: 'address',
+                maxWidth: 80
             }, {
                 Header: 'Type',
                 accessor: 'accommodation_type.name',
                 maxWidth: 60
             }, {
+                Header: 'User',
+                accessor: 'user.name',
+                maxWidth: 60
+            },
+            {
                 Header: 'Approve',
                 Cell: props => <span>
 
@@ -231,6 +235,7 @@ class UsersAndAccommodation extends Component {
 }
 
 function mapStateToProps(state) {
+
 
     return {
 

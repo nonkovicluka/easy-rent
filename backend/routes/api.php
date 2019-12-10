@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\AccommodationNotification;
+
 Route::group([
 
     'middleware' => 'api',
@@ -22,7 +24,6 @@ Route::group([
 
     Route::get('getUsers', 'UserController@getUsers');
     Route::put('ban/{id}', 'UserController@banUser');
-
 });
 
 Route::group([
@@ -40,7 +41,6 @@ Route::group([
     Route::put('delete/{id}', 'AccommodationController@delete');
     Route::put('approve/{id}', 'AccommodationController@approveAccommodation');
     Route::delete('deleteImage', 'AccommodationImageController@deleteImage');
-  
 });
 Route::group([
 
@@ -50,7 +50,6 @@ Route::group([
 ], function () {
 
     Route::get('getAccommodationTypes', 'AccommodationTypeController@getAll');
-  
 });
 
 
@@ -68,7 +67,4 @@ Route::group([
     Route::post('reservation', 'ReservationController@roomReservation');
     Route::put('delete/{id}', 'RoomController@delete');
     Route::put('editRoom', 'RoomController@editRoom');
-
-
-  
 });

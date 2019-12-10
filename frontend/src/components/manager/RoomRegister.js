@@ -27,7 +27,6 @@ import {
 import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader';
 import { DropzonePreview } from '../imageUpload/DropzonePreview';
-import AlertMessage from '../ui/AlertMessage';
 
 class RoomRegister extends React.Component {
 
@@ -251,8 +250,7 @@ class RoomRegister extends React.Component {
                                                     </Col>
                                                 </Row>
                                                 <br /><br />
-                                                <AlertMessage />
-                                                <br /><br />
+                                            
                                                 <div className="d-flex justify-content-center" >
                                                     <Button
                                                         className="btn-round btn-simple"

@@ -40,9 +40,6 @@ import {
   Col
 } from "reactstrap";
 
-import AlertMessage from '../ui/AlertMessage';
-
-
 class Register extends React.Component {
   state = {};
 
@@ -205,7 +202,6 @@ class Register extends React.Component {
                         />
                       </InputGroup>
                       <CardFooter>
-                        <AlertMessage />
                         <Button type="submit" className="btn-round" color="primary" size="lg">
                           Register
                                </Button>

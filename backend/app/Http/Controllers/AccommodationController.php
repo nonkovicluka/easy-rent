@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Accommodation;
 use App\Country;
+use App\Events\AccommodationApprovalNotification;
+use App\Events\AccommodationRegisterNotification;
 use App\Place;
-use App\Region;
+use App\User;
 use Illuminate\Http\Request;
-use PHPUnit\Framework\Constraint\Count;
 
 class AccommodationController extends Controller
 {
@@ -60,6 +61,10 @@ class AccommodationController extends Controller
 
             app('App\Http\Controllers\AccommodationImageController')->saveImages($images, $accommodation->id);
         }
+
+
+        $user = User::find($request['userId']);
+        event(new AccommodationRegisterNotification($user->name, ' has registered accommodation.'));
 
         return $accommodation;
     }
@@ -141,7 +146,7 @@ class AccommodationController extends Controller
        
         if ($unchecked) {
 
-            $accommodation = Accommodation::with('accommodationType')
+            $accommodation = Accommodation::with('accommodationType', 'user')
                 ->where('approved', false)
                 ->get();
         }
@@ -159,6 +164,9 @@ class AccommodationController extends Controller
         $accommodation->approved = true;
 
         $accommodation->save();
+
+        event(new AccommodationApprovalNotification($accommodation->user_id, 'Admin has approved accommodation.'));
+
     }
 
     public function editAccommodation(Request $request)

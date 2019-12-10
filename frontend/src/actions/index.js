@@ -43,7 +43,8 @@ export const register = (formProps) => async (dispatch) => {
         dispatch({
             type: FORM_MESSAGE, payload: {
                 message: 'Email in use',
-                color: 'danger'
+                color: 'danger',
+                visibility: true
             }
         });
 
@@ -66,7 +67,9 @@ export const login = (formProps) => async (dispatch) => {
         dispatch({
             type: FORM_MESSAGE, payload: {
                 message: 'Invalid login credentials',
-                color: 'danger'
+                color: 'danger',
+                visibility: true
+
             }
         });
 
@@ -101,7 +104,7 @@ export const getUsers = () => async (dispatch) => {
 export const banUser = (id) => async (dispatch) => {
 
     try {
-       await axios.put(`http://localhost:8000/api/user/ban/${id}`);
+        await axios.put(`http://localhost:8000/api/user/ban/${id}`);
 
         dispatch({ type: BAN_USER, payload: id })
 
@@ -172,7 +175,9 @@ export const accommodationRegister = (formData, callback) => async (dispatch) =>
         dispatch({
             type: FORM_MESSAGE, payload: {
                 message: 'Successful registration',
-                color: 'success'
+                color: 'success',
+                visibility: true
+
 
             }
         });
@@ -186,7 +191,9 @@ export const accommodationRegister = (formData, callback) => async (dispatch) =>
         dispatch({
             type: FORM_MESSAGE, payload: {
                 message: 'Registration failed',
-                color: 'danger'
+                color: 'danger',
+                visibility: true
+
             }
         });
 
@@ -197,7 +204,7 @@ export const accommodationRegister = (formData, callback) => async (dispatch) =>
 export const searchAccommodation = (params = null, url = 'http://localhost:8000/api/accommodation/searchAccommodation') => async (dispatch) => {
 
     try {
-
+        
         const response = await axios.get(url, {
             params
         });
@@ -238,7 +245,9 @@ export const editAccommodation = (newAccommodation, callback) => async (dispatch
         dispatch({
             type: FORM_MESSAGE, payload: {
                 message: 'Changes saved',
-                color: 'success'
+                color: 'success',
+                visibility: true
+
 
             }
         });
@@ -276,7 +285,7 @@ export const quickEdit = (newAccommodation) => async (dispatch) => {
 export const approveAccommodation = (id) => async (dispatch) => {
 
     try {
-       await axios.put(`http://localhost:8000/api/accommodation/approve/${id}`);
+        await axios.put(`http://localhost:8000/api/accommodation/approve/${id}`);
 
         dispatch({ type: APPROVE_ACCOMMODATION, payload: id })
 
@@ -362,7 +371,9 @@ export const roomRegister = (formData, callback) => async (dispatch) => {
         dispatch({
             type: FORM_MESSAGE, payload: {
                 message: 'Successful registration',
-                color: 'success'
+                color: 'success',
+                visibility: true
+
 
             }
         });
@@ -467,7 +478,9 @@ export const reserveRoom = (reservation, callback) => async (dispatch) => {
         dispatch({
             type: FORM_MESSAGE, payload: {
                 message: 'Successful reservation',
-                color: 'success'
+                color: 'success',
+                visibility: true
+
 
             }
         });
@@ -495,7 +508,9 @@ export const editRoom = (newRoom, callback) => async (dispatch) => {
         dispatch({
             type: FORM_MESSAGE, payload: {
                 message: 'Changes saved',
-                color: 'success'
+                color: 'success',
+                visibility: true
+
 
             }
         });
@@ -518,7 +533,7 @@ export const editRoom = (newRoom, callback) => async (dispatch) => {
 
 export const clearMessage = () => (dispatch) => {
 
-    dispatch({ type: MESSAGE_CLEAR, payload: null });
+    dispatch({ type: MESSAGE_CLEAR, payload: null, visibility: false });
 
 }
 

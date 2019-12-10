@@ -19,7 +19,6 @@ import jwt from 'jsonwebtoken';
 import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
-import AlertMessage from '../ui/AlertMessage';
 
 class RoomReservation extends Component {
 
@@ -177,8 +176,7 @@ class RoomReservation extends Component {
                                 <br />
                                 <Row className="d-flex justify-content-center">
                                     <br />
-                                    <AlertMessage />
-                                    <br />
+                                   
                                 </Row>
                                 <Row className="d-flex justify-content-center" >
 

@@ -41,7 +41,6 @@ import {
   Col
 } from "reactstrap";
 
-import AlertMessage from '../ui/AlertMessage';
 
 
 class Login extends React.Component {
@@ -177,7 +176,6 @@ class Login extends React.Component {
                           />
                         </InputGroup>
                         <CardFooter className="text-center">
-                          <AlertMessage />
                           <Button type="submit" className="btn-round btn-block" color="warning" size="lg">
                             Login
                         </Button>

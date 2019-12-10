@@ -28,7 +28,6 @@ import GoogleMaps from '../googleMaps/GoogleMaps';
 import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader';
 import { DropzonePreview } from '../imageUpload/DropzonePreview';
-import AlertMessage from '../ui/AlertMessage';
 
 class AccommodationRegister extends React.Component {
 
@@ -255,9 +254,7 @@ class AccommodationRegister extends React.Component {
 
                                                     </Col>
                                                 </Row>
-                                                <br /><br />
-                                                <AlertMessage />
-                                                <br /><br />
+                                                <br /> <br />
                                                 <Button
                                                     className="btn-round btn-simple float-right"
                                                     size="lg"
