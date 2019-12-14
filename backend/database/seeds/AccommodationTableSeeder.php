@@ -23,18 +23,20 @@ class AccommodationTableSeeder extends Seeder
         $accommodation1->accommodation_type_id = 1;
         $accommodation1->place_id = 1;
         $accommodation1->approved = true;
+        $accommodation1->average_score = 7.7;
         $accommodation1->save();
 
         $accommodation2 = new Accommodation();
         $accommodation2->name = 'Villa Ibiza';
         $accommodation2->description = 'Villa with view. Sea is amazing.';
-        $accommodation2->address = 'Passeig de Vara de Rey, 26 1-1, 07800 Eivissa, Illes Balears, Spain';
-        $accommodation2->latitude = 38.908941;
-        $accommodation2->longitude = 38.908941;
+        $accommodation2->address = 'Av. 8 d\'Agost, 07800 Eivissa, Illes Balears, Spain';
+        $accommodation2->latitude = 38.9184589;
+        $accommodation2->longitude = 1.4431428;
         $accommodation2->user_id = 1;
         $accommodation2->accommodation_type_id = 3;
         $accommodation2->place_id = 2;
         $accommodation2->approved = true;
+        $accommodation2->average_score = 9;
         $accommodation2->save();
 
         $accommodation3 = new Accommodation();

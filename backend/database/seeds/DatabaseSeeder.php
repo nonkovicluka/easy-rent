@@ -1,9 +1,5 @@
 <?php
 
-use App\Accommodation;
-use App\AccommodationType;
-use App\Country;
-use App\Room;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -33,7 +29,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RoomTableSeeder::class);
         //RoomImages before
         $this->call(RoomImageTableSeeder::class);
-
         
+        $this->call(ReservationTableSeeder::class);
+        
+        $this->call(ReviewTableSeeder::class);
     }
 }

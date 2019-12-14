@@ -7,7 +7,10 @@ use App\Country;
 use App\Events\AccommodationApprovalNotification;
 use App\Events\AccommodationRegisterNotification;
 use App\Place;
+use App\Reservation;
+use App\Review;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AccommodationController extends Controller
@@ -143,7 +146,7 @@ class AccommodationController extends Controller
                 ->Where('user_id', $ownerId)
                 ->get();
         }
-       
+
         if ($unchecked) {
 
             $accommodation = Accommodation::with('accommodationType', 'user')
@@ -166,7 +169,6 @@ class AccommodationController extends Controller
         $accommodation->save();
 
         event(new AccommodationApprovalNotification($accommodation->user_id, 'Admin has approved accommodation.'));
-
     }
 
     public function editAccommodation(Request $request)
@@ -223,5 +225,56 @@ class AccommodationController extends Controller
         $accommodation = Accommodation::with('accommodationImages')->find($id);
 
         return $accommodation;
+    }
+
+
+    public function rateAccommodation(Request $request)
+    {
+        $userId = $request['userId'];
+
+        $user = User::with('reservations')
+            ->find($userId);
+
+        $accommodationId = $request['accommodationId'];
+
+
+        if ($user->reservations->count() > 0) {
+
+            $reservations = Reservation::whereHas('room', function ($query) use ($accommodationId) {
+
+                $query->where('accommodation_id', $accommodationId);
+            })
+                ->where('user_id', $userId)
+                ->whereDate('end_date', '<=', Carbon::now()->toDateString())
+                ->get();
+
+            if ($reservations->count() > 0) {
+
+                $review = Review::create([
+                    'grade' =>  (int) $request['grade'],
+                    'comment' => $request['comment'],
+                    'user_id' =>  $userId,
+                    'accommodation_id' => $accommodationId,
+
+                ]);
+
+                $avg_score = Review::where('accommodation_id', $accommodationId)
+                    ->avg('grade');
+
+                $accommodation = Accommodation::find($accommodationId);
+
+                $accommodation->average_score = $avg_score;
+
+                $accommodation->save();
+
+                return $review;
+            }
+        }
+
+
+
+
+
+        return response()->json(['error' => 'You don\'t have reservation that ended in this accommodation.'], 401);
     }
 }

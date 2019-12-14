@@ -6,7 +6,6 @@ import PagesNavbar from './ui/PagesNavbar';
 import Footer from './ui/Footer';
 import AlertMessage from './ui/AlertMessage';
 import { Col, Container } from "reactstrap";
-import * as actions from '../actions';
 
 
 function App(props) {
@@ -62,7 +61,7 @@ function App(props) {
             <br /><br />
             <br /><br />
             <Container>
-                <Col md="3" className="d-flex ml-auto" >
+                <Col md="3" className="ml-auto" >
 
                     <AlertMessage />
 

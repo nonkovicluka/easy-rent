@@ -115,7 +115,7 @@ class RoomReservation extends Component {
                         onClick={() => this.toggle(this.props.room.id)}
                         className="btn-simple"
                         color="success"
-                        disabled={(!this.props.token)}
+                        disabled={!this.props.token}
                     >
                         Reserve
                    </Button>

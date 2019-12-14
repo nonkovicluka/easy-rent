@@ -26,6 +26,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import GoogleMaps from '../googleMaps/GoogleMaps';
 import RoomReservation from './RoomReservation';
+import AccommodationRate from './AccommodationRate';
 
 
 
@@ -113,17 +114,15 @@ class RoomsShow extends React.Component {
                                     <Row>
                                         <p className="h4 text-white d-flex align-self-end">{'Rating:'}&nbsp;</p>
                                         <p className="my-h5 text-light d-flex align-self-end pl-2">
-                                            7.5
-                                            </p>
+                                            {roomData[0].accommodation.average_score.toFixed(1)}
+                                        </p>
                                         &nbsp;
                                             <img
                                             className="star d-flex align-self-end"
                                             src={require("../../assets/img/star.png")}
                                             alt="rating" />
                                         <Col className="d-flex align-self-end">
-                                            <Button size="lg" color="success" className="btn-round btn-simple" >
-                                                Rate
-                                                  </Button>
+                                            <AccommodationRate />
                                         </Col>
                                     </Row>
                                     <Row  >

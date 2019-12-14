@@ -20,6 +20,7 @@ class CreateAccommodationsTable extends Migration
             $table->string('address');
             $table->double('latitude');
             $table->double('longitude');
+            $table->double('average_score')->default(0);
             $table->boolean('approved')->default(false);
             $table->boolean('deleted')->default(false);
             $table->bigInteger('user_id');

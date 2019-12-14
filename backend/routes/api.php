@@ -40,6 +40,7 @@ Route::group([
     Route::put('quickEdit', 'AccommodationController@quickEdit');
     Route::put('delete/{id}', 'AccommodationController@delete');
     Route::put('approve/{id}', 'AccommodationController@approveAccommodation');
+    Route::post('rate', 'AccommodationController@rateAccommodation');
     Route::delete('deleteImage', 'AccommodationImageController@deleteImage');
 });
 Route::group([

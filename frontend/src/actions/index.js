@@ -204,7 +204,7 @@ export const accommodationRegister = (formData, callback) => async (dispatch) =>
 export const searchAccommodation = (params = null, url = 'http://localhost:8000/api/accommodation/searchAccommodation') => async (dispatch) => {
 
     try {
-        
+
         const response = await axios.get(url, {
             params
         });
@@ -319,6 +319,40 @@ export const getAccommodation = (accommodationId) => async (dispatch) => {
 
 
 };
+
+export const rateAccommodation = (fd, callback) => async (dispatch) => {
+
+    try {
+
+        await axios.post('http://localhost:8000/api/accommodation/rate', fd);
+
+        dispatch({
+            type: FORM_MESSAGE, payload: {
+                message: 'You successfully rated',
+                color: 'success',
+                visibility: true
+
+            }
+        });
+        
+        callback();
+
+    }
+    catch (e) {
+
+        dispatch({
+            type: FORM_MESSAGE, payload: {
+                message: 'You are not allowed to rate',
+                color: 'danger',
+                visibility: true
+
+            }
+        });
+        
+        callback();
+        
+    }
+}
 
 export const deleteImage = (img, type) => async (dispatch) => {
 

@@ -8,7 +8,7 @@ class Accommodation extends Model
 {
     protected $fillable = [
         'name', 'description', 'address', 'average_grade', 'latitude', 'longitude', 'approved',
-        'user_id', 'accommodation_type_id', 'place_id', 'deleted',
+        'user_id', 'accommodation_type_id', 'place_id', 'deleted', 'average_score',
     ];
 
     public $timestamps = false;
