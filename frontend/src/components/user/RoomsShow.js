@@ -29,15 +29,7 @@ import RoomReservation from './RoomReservation';
 import AccommodationRate from './AccommodationRate';
 
 
-
-
-
-
-
 class RoomsShow extends React.Component {
-
-
-
 
     componentDidMount() {
 
@@ -57,14 +49,10 @@ class RoomsShow extends React.Component {
 
         if (this.props.rooms && this.props.rooms.data && this.props.rooms.data.length > 0) {
 
-
-
             const { rooms } = this.props;
             const roomData = this.props.rooms.data;
 
-
             this.props.getLatLng(roomData[0].accommodation);
-
 
             return (
                 <div>
@@ -126,8 +114,6 @@ class RoomsShow extends React.Component {
                                         </Col>
                                     </Row>
                                     <Row  >
-
-
                                     </Row>
                                 </Col>
                                 <Col className="d-flex align-self-end">
